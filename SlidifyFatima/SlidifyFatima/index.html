@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products - Course project</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products - Course project">
+  <meta name="author" content="Fatima Mouaki">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products - Course project</h1>
+    <h2>shiny application - Mortgage Loan Calculator</h2>
+    <p>Fatima Mouaki<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Sypnosis</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The loan amount, the interest rate, and the term of the mortage loan can have a dramatic effect on the total amount you will eventually pay every month. In this project, Loan payment application has been builed to estimate your monthly payment, and help you make decision. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>methodology</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Monthly LOan payment calculator has been builed using Shiny application. the calculation takes three inputs Loan Amount, Interest rate, and Term of the loan.</p>
+
+<p>The formula used for calculating the monthly mortgage amount is as below</p>
+
+<p>Monthly Payment = loan * (1 + i)^ n/((1 + i)^ n - 1)</p>
+
+<p>where</p>
+
+<ol>
+<li>loan = loan amount</li>
+<li>i = interest rate per month (yearly interest rate / 12)</li>
+<li>n = loan term in number of months</li>
+<li>^ = implies power of</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Caluclation in R</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The function that calculate the mortage monthly payment is a follow:</p>
+
+<pre><code class="r">  function(AmountIn, MaturityIn, RateIn)
+  {
+  Amount&lt;-as.numeric(AmountIn)
+  Maturity&lt;-as.numeric(MaturityIn)
+  YRRate&lt;-as.numeric(RateIn)
+  MonthlyRate&lt;-YRRate/12/100
+  months&lt;-Maturity*12
+  pmt(Amount,months,MonthlyRate)
+  }
+</code></pre>
+
+<pre><code>  ## function(AmountIn, MaturityIn, RateIn)
+  ## {
+  ## Amount&lt;-as.numeric(AmountIn)
+  ## Maturity&lt;-as.numeric(MaturityIn)
+  ## YRRate&lt;-as.numeric(RateIn)
+  ## MonthlyRate&lt;-YRRate/12/100
+  ## months&lt;-Maturity*12
+  ## pmt(Amount,months,MonthlyRate)
+  ## }
+</code></pre>
+
+<p>where pmt is a function in tvm package that calculates the mothly payment.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The application has been builed using Shiny</p>
+
+<p>Here is the link to the aplication : </p>
+
+<p>URL: <a href="https://fatimamouaki.shinyapps.io/shiny/">https://fatimamouaki.shinyapps.io/shiny/</a></p>
+
+<p><img src="%22shiny.jpg%22%22" alt="alt text"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Sypnosis'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='methodology'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Caluclation in R'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Shiny App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
